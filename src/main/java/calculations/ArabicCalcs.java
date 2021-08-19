@@ -7,7 +7,7 @@ public class ArabicCalcs extends Calculations {
     }
 
     @Override
-    public String transformation(int number) {
+    public String resultTransformation(int number) {
         return String.valueOf(number);
     }
 

@@ -11,22 +11,22 @@ public abstract class Calculations {
     }
 
     public String addition() throws Exception {
-        return transformation(number1 + number2);
+        return resultTransformation(number1 + number2);
     }
 
     public String substraction() throws Exception {
-        return transformation(number1 - number2);
+        return resultTransformation(number1 - number2);
     }
 
     public String multiplication() throws Exception {
-        return transformation(number1 * number2);
+        return resultTransformation(number1 * number2);
     }
 
     public String division() throws Exception {
-        return transformation((number1 - (number1 % number2)) / number2);
+        return resultTransformation((number1 - (number1 % number2)) / number2);
     }
 
-    protected abstract String transformation(int number) throws Exception;
+    protected abstract String resultTransformation(int number) throws Exception;
 
     protected abstract int constructorTransformation(String number);
 }

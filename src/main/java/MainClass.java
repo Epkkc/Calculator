@@ -5,11 +5,11 @@ import utils.NumberIdentifier;
 
 import java.util.Scanner;
 
-public class main {
+public class MainClass {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         if (!scanner.hasNextLine()){
-            throw new Exception();
+            throw new Exception("Empty line");
         }
         String inputString = scanner.nextLine();
 
@@ -24,7 +24,7 @@ public class main {
         } else if (inputString.contains("/")){
             symbol = "/";
         } else{
-            throw new Exception();
+            throw new Exception("No arithmetic operation");
         }
 
         String[] numbers = inputString.split(symbol);
@@ -33,10 +33,6 @@ public class main {
             numbers[i] = numbers[i].trim();
         }
 
-
-        // Здесь знаем, что в строке есть один из арифметических знаков
-        // Далее необходимо проверить, что слева и справа цифры
-
         Calculations calculator;
 
         if (NumberIdentifier.isArabicNumber(numbers[0]) && NumberIdentifier.isArabicNumber(numbers[1])){
@@ -44,8 +40,9 @@ public class main {
         } else if (NumberIdentifier.isRomanNumber(numbers[0]) && NumberIdentifier.isRomanNumber(numbers[1])){
             calculator = new RomanCalcs(numbers[0], numbers[1]);
         } else {
-            throw new Exception();
+            throw new Exception("Wrong numbers format");
         }
+
         String result = "non result";
         switch (symbol){
             case "\\+":
@@ -63,9 +60,6 @@ public class main {
         }
 
         System.out.println(result);
-
-
-
 
     }
 }

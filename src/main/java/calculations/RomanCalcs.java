@@ -11,9 +11,9 @@ public class RomanCalcs extends Calculations {
     }
 
     @Override
-    public String transformation(int number) throws Exception {
+    public String resultTransformation(int number) throws Exception {
         if (number < 1){
-            throw new Exception();
+            throw new Exception("The result is less than 1");
         }
         return transformationFromArabicToRoman(number, null);
     }
@@ -58,7 +58,7 @@ public class RomanCalcs extends Calculations {
 
         RomanNumbersEnum[] romanNumbers = RomanNumbersEnum.values();
 
-        int index = 0;
+        int index;
 
         // Определение числа, большего, чем преобразовываемое (верхняя граница)
         for (index = 0; index < romanNumbers.length; index++) {
@@ -75,7 +75,7 @@ public class RomanCalcs extends Calculations {
             for (int i = index - 1; i >= 0; i--) {
                 if (number <= (romanNumbers[index].getNumber() - romanNumbers[i].getNumber())) {
                     if (number == (romanNumbers[index].getNumber() - romanNumbers[i].getNumber())) {
-                        return result += romanNumbers[i].toString() + romanNumbers[index].toString();
+                        return result + (romanNumbers[i].toString() + romanNumbers[index].toString());
                     }
                     result += romanNumbers[i + 1].toString() + romanNumbers[index].toString();
                     number -= (romanNumbers[index].getNumber() - romanNumbers[i + 1].getNumber());

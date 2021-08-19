@@ -4,7 +4,7 @@ import enums.RomanInputNumbersEnum;
 
 public class NumberIdentifier {
 
-    public static boolean isArabicNumber(String number) throws Exception {
+    public static boolean isArabicNumber(String number) {
         int intNumber;
         try {
             intNumber = Integer.parseInt(number);
